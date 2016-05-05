@@ -9,8 +9,8 @@ var SongQueue = Backbone.Collection.extend({
 
     this.on('add', function(){
       if(this.length === 1){
-       this.playFirst();
-     } 
+        this.playFirst();
+      } 
     }, this);
 
     //listen for when a song ends,
