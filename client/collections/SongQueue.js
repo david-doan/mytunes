@@ -3,7 +3,7 @@ var SongQueue = Backbone.Collection.extend({
 
   model: SongModel,
 
-  // listen for changes in any of the songModels
+  // listen for changes on the collection
 
   initialize: function() {
 
@@ -27,6 +27,12 @@ var SongQueue = Backbone.Collection.extend({
     this.on('dequeue',function(){
       this.remove( this.at(0) );
     }, this);
+
+    //listen for an enqueue
+    // enqueue the song
+    // this.on('enqueue', function(){
+      
+    // }, this);
   },
 
   playFirst: function() {
