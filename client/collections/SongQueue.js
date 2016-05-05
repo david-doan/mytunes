@@ -4,9 +4,10 @@ var SongQueue = Backbone.Collection.extend({
   model: SongModel,
 
   // listen for changes on the collection
-
   initialize: function() {
 
+    //listen for something added to collection
+    // plays song if its the only song
     this.on('add', function(){
       if(this.length === 1){
         this.playFirst();
