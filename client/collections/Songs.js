@@ -6,8 +6,26 @@ var Songs = Backbone.Collection.extend({
 
   initialize: function(){
 
+    // this.fetch({
+    //   url: 'https://api.parse.com/1/classes/songs',
+    //   remove: false,
+    //   type: 'GET',
+    //   contentType: 'application/json',
+    //   success: function (data) {
+    //     console.log('Songs fetched.');
+    //   },
+    //   error: function (data) {
+    //     console.error('Failed to fetch songs', data);
+    //   }
+    // });
+
+    this.fetchSongs();
+
+  },
+
+  fetchSongs: function(){
     this.fetch({
-      // url: 'https://api.parse.com/1/classes/songs',
+      url: 'https://api.parse.com/1/classes/songs',
       remove: false,
       type: 'GET',
       contentType: 'application/json',
@@ -18,10 +36,14 @@ var Songs = Backbone.Collection.extend({
         console.error('Failed to fetch songs', data);
       }
     });
+  },
 
+  serverUpdate: function() {
+    this.trigger('serverUpdate', this);
   },
 
   parse: function(response){
+    this.serverUpdate();
     return response.results;
   },
 

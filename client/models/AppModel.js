@@ -26,17 +26,6 @@ var AppModel = Backbone.Model.extend({
     params.library.on('dequeue', function(song) {
       // do stuff
     }, this);
-
-    params.library.on('ended', function(song) {
-      // do stuff
-      // console.log('AppModel Triggered');
-    }, this);
-
-    this.on('ended', function(song) {
-      // do stuff
-      // console.log('AppModel Triggered');
-    }, this);
-
   }
 
 });
