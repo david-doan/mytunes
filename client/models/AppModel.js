@@ -1,3 +1,4 @@
+var test;
 // App.js - Defines a backbone model class for the whole app.
 var AppModel = Backbone.Model.extend({
 
@@ -19,6 +20,7 @@ var AppModel = Backbone.Model.extend({
 
     params.library.on('enqueue', function(song) {
       // do stuff
+      this.get('songQueue').push(song);
     }, this);
 
     params.library.on('dequeue', function(song) {
@@ -27,8 +29,13 @@ var AppModel = Backbone.Model.extend({
 
     params.library.on('ended', function(song) {
       // do stuff
+      // console.log('AppModel Triggered');
     }, this);
 
+    this.on('ended', function(song) {
+      // do stuff
+      // console.log('AppModel Triggered');
+    }, this);
 
   }
 

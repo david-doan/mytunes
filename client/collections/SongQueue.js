@@ -30,9 +30,17 @@ var SongQueue = Backbone.Collection.extend({
 
     //listen for an enqueue
     // enqueue the song
-    // this.on('enqueue', function(){
-      
-    // }, this);
+    this.on('enqueue', function(song){
+      console.log('enqueue heard');
+      this.push(song);
+    }, this);
+
+    //listen for a close
+    //remote song from the queue
+    this.on('close', function(song){
+      this.remove(song);
+    }, this);
+  
   },
 
   playFirst: function() {

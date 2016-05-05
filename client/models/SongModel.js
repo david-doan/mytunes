@@ -16,6 +16,12 @@ var SongModel = Backbone.Model.extend({
 
   ended: function() {
     this.trigger('ended', this);
+    console.log('SongModel Triggered');
+  },
+
+  close: function() {
+    this.trigger('close', this);
+    console.log('SongModel close triggered');
   }
 
 });
